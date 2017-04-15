@@ -1,3 +1,4 @@
+Rails 5.1.0.rc1 - Ruby 2.4.0
 # README
 
 This README would normally document whatever steps are necessary to get the

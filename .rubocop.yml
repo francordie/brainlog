@@ -1,0 +1,8 @@
+Metrics/LineLength:
+  Max: 199
+Style/FrozenStringLiteralComment:
+  EnforcedStyle: never
+Style/Documentation:
+  Enabled: false
+AllCops:
+  TargetRubyVersion: 2.4
