@@ -1,0 +1,37 @@
+<div class="row">
+  <div class="col-sm-12">
+    <h1>Hi there</h1>
+    <div class="pull-right">
+      Probando tooltip JS
+      <button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="top" title="Tooltip on top">Tooltip on top</button>
+    </div>
+  </div>
+</div>
+
+<%= form_with model: Event.new, class: 'form-inline' do |f| %>
+  <%= f.text_field :title, placeholder: 'Título', class: 'form-control' %>
+  <%= f.text_field :description, placeholder: 'Descripción', class: 'form-control' %>
+  <%= f.submit :ingresar, class: 'btn btn-default' %>
+<% end %>
+
+<h1>Listado de eventos </h1>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Título</th>
+      <th>Descripción</th>
+      <th>Fecha creación</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @events.each do |event| %>
+      <tr>
+        <td><%= event.title %></td>
+        <td><%= event.description %></td>
+        <td><%= l event.created_at, format: :short %></td>
+        <td><%= link_to 'Eliminar', event_path(event), method: :delete, confirm: '¿Seguro de borrar?' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

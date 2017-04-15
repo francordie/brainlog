@@ -80,6 +80,6 @@ test:
 #
 production:
   <<: *default
-  database: brainlog_production
-  username: brainlog
+  database: <%= ENV['BRAINLOG_DATABASE_NAME'] %>
+  username: <%= ENV['BRAINLOG_DATABASE_USERNAME'] %>
   password: <%= ENV['BRAINLOG_DATABASE_PASSWORD'] %>
