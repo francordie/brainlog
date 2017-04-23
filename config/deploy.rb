@@ -57,7 +57,6 @@ set :puma_init_active_record, true  # Change to false when not using ActiveRecor
 
 # set :rvm_type, :user # Searches in ~/.rvm
 # set :rvm_ruby_version, 'ruby-2.4.0@brainlog'
-set :rvm1_map_bins, %w(rake gem bundle ruby honeybadger)
 ## Defaults:
 # set :scm,           :git
 # set :branch,        :master
@@ -68,6 +67,10 @@ set :rvm1_map_bins, %w(rake gem bundle ruby honeybadger)
 ## Linked Files & Directories (Default None):
 # set :linked_files, %w{config/database.yml}
 # set :linked_dirs,  %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
+
+before 'deploy', 'rvm1:install:rvm'
+before 'deploy', 'rvm1:install:ruby'
+before 'deploy', 'rvm1:install:gems' 
 
 namespace :puma do
   desc 'Create Directories for Puma Pids and Socket'

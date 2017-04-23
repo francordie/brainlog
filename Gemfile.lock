@@ -226,7 +226,7 @@ DEPENDENCIES
   puma (~> 3.7)
   rails (~> 5.1.0.rc1)
   rubocop
-  rvm1-capistrano3
+  rvm1-capistrano3 (= 1.4.0)
   sass-rails!
   selenium-webdriver
   spring
