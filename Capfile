@@ -8,15 +8,15 @@ require 'capistrano/rails'
 require 'capistrano/bundler'
 
 require 'capistrano/puma'
- install_plugin Capistrano::Puma
+install_plugin Capistrano::Puma
 
 require "capistrano/scm/git"
 install_plugin Capistrano::SCM::Git
 
-require 'capistrano/rvm'
+require 'rvm1/capistrano3'
 # deploy.rb or stage file (staging.rb, production.rb or else)
-set :rvm_type, :user # Searches in ~/.rvm
-set :rvm_ruby_version, '2.4.0@brainlog'
+# set :rvm_type, :user # Searches in ~/.rvm
+# set :rvm_ruby_version, 'ruby-2.4.0@brainlog'
 #set :rvm_custom_path, '~/.myveryownrvm'  # only needed if not detected
 
 # Include tasks from other gems included in your Gemfile

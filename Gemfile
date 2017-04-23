@@ -40,7 +40,8 @@ group :development do
   gem 'capistrano', '~> 3.7', '>= 3.7.1'
   gem 'capistrano-rails', '~> 1.2'
   gem 'capistrano3-puma'
-  gem 'capistrano-rvm'
+#  gem 'capistrano-rvm'
+  gem 'rvm1-capistrano3', require: false
 
   gem 'colorize'
   gem 'listen', '>= 3.0.5', '< 3.2'

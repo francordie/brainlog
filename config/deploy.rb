@@ -55,6 +55,9 @@ set :puma_preload_app, true
 set :puma_worker_timeout, nil
 set :puma_init_active_record, true  # Change to false when not using ActiveRecord
 
+# set :rvm_type, :user # Searches in ~/.rvm
+# set :rvm_ruby_version, 'ruby-2.4.0@brainlog'
+set :rvm1_map_bins, %w(rake gem bundle ruby honeybadger)
 ## Defaults:
 # set :scm,           :git
 # set :branch,        :master
@@ -82,6 +85,7 @@ namespace :deploy do
   desc "Make sure local git is in sync with remote."
   task :check_revision do
     on roles(:app) do
+
       unless `git rev-parse HEAD` == `git rev-parse origin/master`
         puts "WARNING: HEAD is not the same as origin/master"
         puts "Run `git push` to sync changes."
@@ -95,6 +99,16 @@ namespace :deploy do
     on roles(:app) do
       before 'deploy:restart', 'puma:start'
       invoke 'deploy'
+    end
+  end
+
+  desc 'Test check'
+  task :test_check do
+    on roles(:app) do
+      puts 'Viendo versiones de rvm'
+      execute "rvm current"
+      execute "rvm list gemset"
+      execute "rvm gemsets list"
     end
   end
 
